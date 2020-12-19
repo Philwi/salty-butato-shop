@@ -13,6 +13,7 @@ RUN apt-get update -y
 # Install Yarn
 RUN apt-get install yarn -y
 RUN apt-get install bash -y
+RUN apt-get install vim -y
 
 ADD . /usr/src/app
 WORKDIR /usr/src/app
