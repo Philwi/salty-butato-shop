@@ -20,6 +20,8 @@ end
 
 SpreeI18n::Config.available_locales = [:en, :de] # displayed on frontend select box
 SpreeGlobalize::Config.supported_locales = [:en, :de]
+Spree::Frontend::Config[:locale] = :de
+Spree::Backend::Config[:locale] = :de
 
 # Configure Spree Dependencies
 #
