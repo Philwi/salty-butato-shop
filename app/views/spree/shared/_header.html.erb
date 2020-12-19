@@ -1,6 +1,9 @@
 <%# leaving #spree-header div for legacy support  %>
 <%- if current_page?(root_path) %>
-  <%= concept(::Layout::Cell::MainVideo).() %>
+  <div class='header_video'>
+    <%= video_tag('header.webm', autoplay: true, loop: true, muted: 'muted') %>
+    <%= image_tag('logo.png', class: 'video_logo_overlay') %>
+  </div>
 <%- end %>
 <% cache spree_nav_cache_key('header') do %>
   <div id="spree-header" data-turbolinks-permanent>

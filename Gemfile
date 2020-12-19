@@ -32,6 +32,11 @@ gem 'spree', '~> 4.1'
 gem 'spree_auth_devise', '~> 4.2'
 gem 'spree_gateway', '~> 3.9'
 
+# spree extensions
+gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
+gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
+gem 'spree_multi_currency', github: 'spree-contrib/spree_multi_currency'
+
 gem "trailblazer"
 gem "trailblazer-rails"
 gem "trailblazer-cells"

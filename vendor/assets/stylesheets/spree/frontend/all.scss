@@ -10,19 +10,19 @@
 */
 
 .header-spree-fluid-logo img{
-  max-height: 100px;
+  max-height: 70px;
 }
 
 .header-spree{
-  height: 100px;
+  height: 70px;
 }
 
 .main-nav-bar-category-dropdown {
-  top: 100px;
+  top: 70px;
 }
 
 .footer-spree .logo img {
-  height: 90px;
+  height: 70px;
   width: auto;
 }
 
@@ -34,8 +34,20 @@
   font-weight: normal;
 }
 
-.header_video video{
+.header_video{
   max-height: 50vh;
-  width: 100vw;
-  object-fit: cover;
+  position: relative;
+  video{
+    max-height: inherit;
+    width: 100vw;
+    object-fit: cover;
+  }
+  .video_logo_overlay{
+    margin: auto;
+    position: absolute;
+    max-height: 35vh;
+    width: auto;
+    z-index: 1;
+    top: -100px; left: 0; bottom: 0; right: 0;
+  }
 }
