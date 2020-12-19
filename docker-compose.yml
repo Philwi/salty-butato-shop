@@ -29,18 +29,18 @@ services:
       - .:/usr/src/app
     depends_on:
       - db
-        #- webpack
-        #   tty: true
-        #   stdin_open: true
+      - webpack
+    tty: true
+    stdin_open: true
 
-        # webpack:
-        #   build: .
-        #   command: ./bin/webpack-dev-server
-        #   volumes:
-        #     - .:/usr/src/app
-        #   ports:
-        #     - '3035:3035'
-        #   environment:
-        #     NODE_ENV: ${STAGE}
-        #     RAILS_ENV: ${STAGE}
-        #     WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+  webpack:
+    build: .
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - '3035:3035'
+    environment:
+      NODE_ENV: ${STAGE}
+      RAILS_ENV: ${STAGE}
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0

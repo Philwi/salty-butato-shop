@@ -8,3 +8,34 @@
  *= require_self
  *= require_tree .
 */
+
+.header-spree-fluid-logo img{
+  max-height: 100px;
+}
+
+.header-spree{
+  height: 100px;
+}
+
+.main-nav-bar-category-dropdown {
+  top: 100px;
+}
+
+.footer-spree .logo img {
+  height: 90px;
+  width: auto;
+}
+
+.product-component-price{
+  font-weight: 500;
+}
+
+.taxon-subcategories{
+  font-weight: normal;
+}
+
+.header_video video{
+  max-height: 50vh;
+  width: 100vw;
+  object-fit: cover;
+}

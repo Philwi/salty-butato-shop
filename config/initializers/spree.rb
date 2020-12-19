@@ -14,6 +14,8 @@ Spree.config do |config|
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
   config.logo = 'logo.png'
+  config.admin_interface_logo = 'logo.png'
+  # config.site_name = 'Salty Butato'
 end
 
 # Configure Spree Dependencies

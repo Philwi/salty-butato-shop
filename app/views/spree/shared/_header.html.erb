@@ -1,4 +1,7 @@
 <%# leaving #spree-header div for legacy support  %>
+<%- if current_page?(root_path) %>
+  <%= concept(::Layout::Cell::MainVideo).() %>
+<%- end %>
 <% cache spree_nav_cache_key('header') do %>
   <div id="spree-header" data-turbolinks-permanent>
     <header id="header" class="d-flex align-items-center header-spree border-bottom">
@@ -23,6 +26,7 @@
           <%= render partial: 'spree/shared/mobile_navigation' %>
         </div>
       </div>
+
     </header>
   </div>
 <% end %>
