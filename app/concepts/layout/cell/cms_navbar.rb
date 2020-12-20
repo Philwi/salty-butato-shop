@@ -5,7 +5,7 @@ module Layout::Cell
     include ActionView::Helpers::JavaScriptHelper
 
     def categories
-      Comfy::Cms::Category.where.not(label: 'Vwysiwyg')
+      Comfy::Cms::Category.where.not(label: 'wysiwyg')
     end
 
     def pages_in_category(category)
