@@ -1,5 +1,7 @@
 default:
   navigation:
+    - title: Blog
+      url: /blog
     - title: Women
       subtitle: Categories
       url: /t/women

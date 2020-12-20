@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+@import './spree/frontend/variables/variables.scss';
+
+.cms-container{
+  display: flex;
+  .cms-body-container{
+    margin-top: 5vh;
+    min-height: 50vh;
+    padding: 10px;
+    padding-left: 50px;
+  }
+  .cms-side-bar{
+    padding: 10px;
+    border-right: 1px solid $global-border-style;
+    li{
+      list-style: none;
+    }
+    .category-label{
+      font-size: 25px;
+    }
+    .cms_pages.hide{
+      display: none;
+    }
+    .category-label{
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cms-body-container{
+    margin: 10px 0;
+  }
+}

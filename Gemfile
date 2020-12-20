@@ -36,7 +36,9 @@ gem 'spree_gateway', '~> 3.9'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
 gem 'spree_multi_currency', github: 'spree-contrib/spree_multi_currency'
-gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+
+# cms
+gem "comfortable_mexican_sofa", "~> 2.0.0"
 
 gem "trailblazer"
 gem "trailblazer-rails"
