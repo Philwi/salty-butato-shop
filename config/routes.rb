@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   # Ensure that this route is defined last
   comfy_route :cms, path: "/blog"
 
-  scope :locale do
-    root 'spree/home#index'
-  end
+  root 'spree/home#index'
 
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to
@@ -15,6 +13,6 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being
   # the default of "spree".
-  mount Spree::Core::Engine, at: '/'
+    mount Spree::Core::Engine, at: '/'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -13,7 +13,7 @@ module Layout::Cell
     end
 
     def page_path(full_path)
-      "blog/#{full_path}"
+      "/blog/#{full_path}"
     end
   end
 end

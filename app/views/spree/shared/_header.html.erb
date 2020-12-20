@@ -1,5 +1,5 @@
 <%# leaving #spree-header div for legacy support  %>
-<%- if current_page?(root_path) %>
+<%- if current_page?(root_path) || current_page?('/') %>
   <div class='header_video'>
     <%= video_tag('header.webm', autoplay: true, loop: true, muted: 'muted') %>
     <%= image_tag('logo.png', class: 'video_logo_overlay') %>

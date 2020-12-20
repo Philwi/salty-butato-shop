@@ -18,15 +18,18 @@
 
 .cms-container{
   display: flex;
+  flex-wrap: wrap;
   .cms-body-container{
     margin-top: 5vh;
     min-height: 50vh;
     padding: 10px;
     padding-left: 50px;
+    flex-wrap: inherit;
   }
   .cms-side-bar{
     padding: 10px;
     border-right: 1px solid $global-border-style;
+    flex-wrap: inherit;
     li{
       list-style: none;
     }
@@ -42,8 +45,17 @@
   }
 }
 
+.footer-spree .logo img {
+  height: 70px;
+  width: auto;
+}
+
 @media only screen and (max-width: 600px) {
   .cms-body-container{
     margin: 10px 0;
+  }
+  .cms-side-bar{
+    width: 100vh;
+    border-bottom: 1px solid $global-border-style;
   }
 }
