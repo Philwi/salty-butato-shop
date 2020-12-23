@@ -32,18 +32,18 @@ default:
           title: Get up to 30% off
           url: /t/special-offers/30-off
           image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Accessoires
-      url: /accessoires
-      subtitle: Kategorien
-      items:
-        - :title: Beutel
-          :url: /accessoires/beutel
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-second-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-second-category.jpg'
+    # - title: Accessoires
+    #   url: /accessoires
+    #   subtitle: Kategorien
+    #   items:
+    #     - :title: Beutel
+    #       :url: /accessoires/beutel
+    #   promo_banners:
+    #     - subtitle: New collection
+    #       title: Summer 2019
+    #       url: /t/new-collection/summer-2019
+    #       image: 'meganav/promo_banner_left-second-category.jpg'
+    #     - subtitle: Special Offers
+    #       title: Get up to 30% off
+    #       url: /t/special-offers/30-off
+    #       image: 'meganav/promo_banner_right-second-category.jpg'

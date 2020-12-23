@@ -7,10 +7,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render partial: 'spree/shared/head' %>
   </head>
 
   <body>
     <%= render partial: 'spree/shared/header' %>
+    <div id="overlay" class="overlay hide-on-esc"></div>
     <div data-hook>
       <main id="content" data-hook>
         <%= flash_messages %>
