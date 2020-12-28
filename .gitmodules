@@ -1,0 +1,3 @@
+[submodule "printful_spree_sync"]
+	path = printful_spree_sync
+	url = https://github.com/Philwi/printful_spree_sync.git

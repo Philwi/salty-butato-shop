@@ -22,6 +22,6 @@ WORKDIR /usr/src/app
 RUN gem install bundler:'~> 2.1.4'
 RUN gem install rake
 
-RUN bundle install
+RUN bundle install --path=vendor/cache
 
 CMD ./docker-entrypoint.sh
