@@ -29,7 +29,6 @@ module Printful::Operation
     def create_variants_if_necessary(ctx, variants:, spree_product:, **)
       variants.each.with_index do |variant, index|
         option_values = create_new_option_values(variant: variant)
-        # TODO: find the right variant for master
         master_variant = index == 0
 
         create_variant(

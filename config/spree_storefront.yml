@@ -4,25 +4,25 @@ default:
       url: /blog
     - title: Klamotten
       subtitle: Kategorien
-      url: /klamotten
+      url: /t/klamotten
       items:
         - :title: T-Shirts
-          :url: /klamotten/shirts
+          :url: /t/klamotten/t-shirts
         - :title: Pullover
-          :url: /klamotten/pullover
+          :url: /t/klamotten/pullover
         - :title: Beenies
-          :url: /klamotten/beenies
+          :url: /t/klamotten/beenies
       promo_banners:
         - subtitle: New collection
           title: Summer 2021
-          url: /klamotten/new-collection/summer-2019
+          url: /t/klamotten/new-collection/summer-2019
           image: 'meganav/promo_banner_left-first-category.jpg'
         - subtitle: Special Offers
           title: Get up to 30% off
           url: /t/special-offers/30-off
           image: 'meganav/promo_banner_right-first-category.jpg'
     - title: Prints
-      url: /prints
+      url: /t/prints
       promo_banners:
         - subtitle: New collection
           title: Summer 2019
