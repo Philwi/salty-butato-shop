@@ -1,6 +1,5 @@
 module Printful::Operation
   class CreateProducts < Trailblazer::Operation
-
     step :create_new_products, fast_track: true
 
     def create_new_products(ctx, new_products:, **)
