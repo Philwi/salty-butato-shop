@@ -2,8 +2,8 @@ module Printful::Util
   module Helper
     SPREE_TYPES =
       {
-        'shirt-size' => %w[XS S M L XL 2XL 3XL 4XL],
-        'shirt-color' => %w[]
+        'size' => %w[XS S M L XL 2XL 3XL 4XL],
+        'color' => %w[]
       }
 
     class << self

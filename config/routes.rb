@@ -16,3 +16,9 @@ Rails.application.routes.draw do
     mount Spree::Core::Engine, at: '/'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+Spree::Core::Engine.add_routes do
+  namespace :admin, path: Spree.admin_path do
+    post 'products/get_new_products_from_printful', to: 'products#sync_new_products_from_printful'
+  end
+end
