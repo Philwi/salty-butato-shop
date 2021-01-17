@@ -1,10 +1,11 @@
 module Printful::Order::Operation
   class Sync < Trailblazer::Operation
 
-    step :create_request_message
+    step :create_request_message, fast_track: true
     step :sync_to_printful
 
     def create_request_message(ctx, order:, **)
+      return Railway.pass_fast! if Rails.env == 'test' || Rails.env == 'development'
       spree_user = order.user
       ship_address = order.ship_address
       items = 
