@@ -65,8 +65,10 @@ module Printful::Operation
         cost_currency: printful_variant['currency'],
         cost_price: printful_variant['retail_price'],
         printful_variant_id: printful_variant['variant_id'],
+        printful_sync_variant_id: printful_variant['id'],
         product: spree_product,
         option_values: spree_option_values,
+        track_inventory: false
       )
 
       variant.update(price: printful_variant['retail_price'])

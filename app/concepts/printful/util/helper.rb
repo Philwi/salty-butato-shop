@@ -65,6 +65,13 @@ module Printful::Util
         HTTParty.get("#{base_uri}/#{url}", headers: headers)
       end
 
+      def post_request(url:, body:)
+        base_uri = 'https://api.printful.com'
+        api_key = Rails.application.credentials.dig(:printful, :api_key)
+        headers = { 'Authorization': 'Basic ' + Base64.encode64(api_key) }
+        HTTParty.post("#{base_uri}/#{url}", body: body.to_json, headers: headers)
+      end
+
       def create_colors_from_constant
         SPREE_COLOR_NAMES.each do |color|
           ColorTable.find_or_create_by(colorname: color.keys.first, hex: color.values.first)

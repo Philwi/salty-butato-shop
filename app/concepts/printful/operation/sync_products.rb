@@ -1,12 +1,13 @@
 module Printful::Operation
   class SyncProducts < Trailblazer::Operation
-    step :sync, fast_track: true
+    step :sync_products, fast_track: true
 
-    def create_new_products(ctx, old_products:, old_products_printful_response:, **)
+    def sync_products(ctx, old_products:, old_products_printful_response:, **)
 
       old_products_printful_response.each do |product|
         old_product = old_products.find_by(printful_id: product[:id])
-        old_product.available_on = ::Date.today
+        next if old_product.blank?
+        old_product.available_on = ::Date.today - 1.day
         old_product.shipping_category = ::Spree::ShippingCategory.find_or_create_by(name: 'Default')
         old_product.name = product['name']
         old_product.description = product['name']

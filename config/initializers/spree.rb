@@ -37,3 +37,8 @@ end
 # Spree::Api::Dependencies.storefront_cart_serializer = 'MyRailsApp::CartSerializer'
 
 Spree.user_class = "Spree::User"
+
+config = Rails.application.config
+config.spree.calculators.tax_rates << CustomTaxCalculator
+config.spree.calculators.shipping_methods << CustomShippingCalculator
+# config.spree.calculators.promotion_actions_create_adjustments << CustomCalculator

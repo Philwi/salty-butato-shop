@@ -6,7 +6,7 @@ module Printful::Operation
       new_products.each do |product|
         new_product = ::Spree::Product.new
         new_product.printful_id = product['id']
-        new_product.available_on = ::Date.today
+        new_product.available_on = ::Date.today - 1.day
         new_product.shipping_category = ::Spree::ShippingCategory.find_or_create_by(name: 'Default')
         new_product.name = product['name']
         new_product.description = product['name']
