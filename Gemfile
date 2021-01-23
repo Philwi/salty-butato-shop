@@ -37,7 +37,9 @@ gem 'spree_gateway', '~> 3.9'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
 gem 'spree_multi_currency', github: 'spree-contrib/spree_multi_currency'
-gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
+# SSL fix https://github.com/spree-contrib/better_spree_paypal_express/issues/213
+# gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
+gem 'spree_paypal_express', github: 'matissg/better_spree_paypal_express', branch: 'matissg-patch-1'
 
 # cms
 gem "comfortable_mexican_sofa", "~> 2.0.0"
