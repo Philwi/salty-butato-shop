@@ -26,12 +26,18 @@
     flex-wrap: inherit;
     margin: auto
   }
-  .cms-side-bar{
+  #cms-side-bar{
     padding: 25px 25px 0px 0px;
     border-right: 1px solid $global-border-style;
     flex-wrap: inherit;
+    max-width: 20%;
     li{
       list-style: none;
+      .sub-nav{
+      }
+    }
+    .sub-nav{
+      list-style: disclosure-closed;
     }
     .category-label{
       font-size: 25px;
@@ -55,12 +61,13 @@
   width: auto;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .cms-body-container{
     margin: 10px 0;
   }
-  .cms-side-bar{
+  #cms-side-bar{
     width: 100vh;
+    max-width: 100% !important;
     border-bottom: 1px solid $global-border-style;
   }
 }

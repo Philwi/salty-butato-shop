@@ -1,8 +1,9 @@
-.cms-side-bar(data-controller="cms-side-bar")
+#cms-side-bar(data-controller="cms-side-bar", data-turbolinks-permanent)
   ul
     - categories.each do |category|
       li.category-label(data-action="click->cms-side-bar#toggle", value="#{category.label}") = category.label
       .cms_pages.hide(class="#{category.label}")
         ul
           - pages_in_category(category).each do |page|
-            = link_to(page.label, page_path(page.full_path))
+            li.sub-nav = link_to(page.label, page_path(page.full_path))
+

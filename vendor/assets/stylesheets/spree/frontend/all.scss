@@ -11,6 +11,7 @@
 
 .header-spree-fluid-logo img{
   max-height: 70px;
+  filter: invert(100%);
 }
 
 .header-spree{
@@ -30,6 +31,7 @@
 .footer-spree .logo img {
   height: 70px;
   width: auto !important;
+  filter: invert(100%);
 }
 
 .product-component-price{

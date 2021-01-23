@@ -207,9 +207,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_210919) do
     t.string "locale"
     t.index ["deleted_at"], name: "index_friendly_id_slugs_on_deleted_at"
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "spree_addresses", id: :serial, force: :cascade do |t|
@@ -1430,7 +1427,6 @@ ActiveRecord::Schema.define(version: 2021_01_17_210919) do
     t.index ["kind"], name: "index_spree_zones_on_kind"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "spree_oauth_access_grants", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_oauth_access_tokens", "spree_oauth_applications", column: "application_id"
 end
