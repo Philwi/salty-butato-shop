@@ -26,7 +26,6 @@ module Printful::Operation
       ctx[:printful_ids] = printful_ids
       ctx[:response] = response
 
-      ::Spree::Product::Translation.delete_all
       true
     end
 

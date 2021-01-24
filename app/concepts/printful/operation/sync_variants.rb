@@ -80,15 +80,15 @@ module Printful::Operation
         price: printful_variant['retail_price']
       )
 
-      # TODO: try not to delete all files and redownload them if they are already there
-      variant.images.delete_all
-      printful_variant['files'].map do |file|
+      if variant.images.blank?
+        printful_variant['files'].map do |file|
 
-        new_image = URI.open(file['preview_url'])
-        image = variant.images.build
-        image.attachment.attach(io: new_image, filename: file['filename'])
-        image.attachment_file_name = file['filename']
-        image.save
+          new_image = URI.open(file['preview_url'])
+          image = variant.images.build
+          image.attachment.attach(io: new_image, filename: file['filename'])
+          image.attachment_file_name = file['filename']
+          image.save
+        end
       end
     end
 
