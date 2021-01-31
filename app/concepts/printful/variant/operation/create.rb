@@ -1,5 +1,5 @@
-module Printful::Operation
-  class SyncVariants < Trailblazer::Operation
+module Printful::Variant::Operation
+  class Create < Trailblazer::Operation
     step :get_variants, fast_track: true
     step :find_spree_product
     step :prepare_spree_option_type
@@ -30,7 +30,7 @@ module Printful::Operation
         option_values = create_new_option_values(variant: variant)
         master_variant = index == 0
 
-        create_or_update_variant(
+        create_variant(
           master_variant: master_variant,
           printful_variant: variant,
           spree_option_values: option_values,
@@ -58,7 +58,7 @@ module Printful::Operation
       end
     end
 
-    def create_or_update_variant(printful_variant:, spree_option_values:, master_variant: false, spree_product:)
+    def create_variant(printful_variant:, spree_option_values:, master_variant: false, spree_product:)
       variant = ::Spree::Variant.find_or_create_by(
         sku: printful_variant['sku'],
         is_master: master_variant,
@@ -68,27 +68,17 @@ module Printful::Operation
         printful_sync_variant_id: printful_variant['id'],
         product: spree_product,
         option_values: spree_option_values,
-      ).update(
-        sku: printful_variant['sku'],
-        is_master: master_variant,
-        cost_currency: printful_variant['currency'],
-        cost_price: printful_variant['retail_price'],
-        printful_variant_id: printful_variant['variant_id'],
-        printful_sync_variant_id: printful_variant['id'],
-        product: spree_product,
-        option_values: spree_option_values,
-        price: printful_variant['retail_price']
+        track_inventory: false
       )
 
-      if variant.images.blank?
-        printful_variant['files'].map do |file|
+      variant.update(price: printful_variant['retail_price'])
 
-          new_image = URI.open(file['preview_url'])
-          image = variant.images.build
-          image.attachment.attach(io: new_image, filename: file['filename'])
-          image.attachment_file_name = file['filename']
-          image.save
-        end
+      printful_variant['files'].map do |file|
+        new_image = URI.open(file['preview_url'])
+        image = variant.images.build
+        image.attachment.attach(io: new_image, filename: file['filename'])
+        image.attachment_file_name = file['filename']
+        image.save
       end
     end
 

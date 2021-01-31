@@ -1,10 +1,14 @@
 module Printful::Operation
   class GetProducts < Trailblazer::Operation
     step :get_products, fast_track: true
-    step Subprocess(::Printful::Operation::CreateProducts)
-    step Subprocess(::Printful::Operation::SyncProducts)
+    step Subprocess(::Printful::Product::Operation::Create)
+    step :create_variants_for_new_products
+    step Subprocess(::Printful::Product::Operation::Sync)
+    step :sync_variants_from_existing_products
     step :get_deleted_products
     step :update_product_price
+
+    private
 
     def get_products(ctx, **)
       response = ::Printful::Util::Helper.request(url: '/sync/products')
@@ -29,7 +33,21 @@ module Printful::Operation
       true
     end
 
-    def get_deleted_products(ctx, printful_ids:, **)
+    def create_variants_for_new_products(_ctx, new_products:, **)
+      new_products.each do |product|
+        ::Printful::Variant::Operation::Create.(printful_id: product['id'])
+      end
+      true
+    end
+
+    def sync_variants_from_existing_products(_ctx, old_products:, **)
+      old_products.each do |product|
+        ::Printful::Variant::Operation::Sync.(printful_id: product['id'])
+      end
+      true
+    end
+
+    def get_deleted_products(_ctx, printful_ids:, **)
       products = Spree::Product.all
       deleted_printful_ids = products.pluck(:printful_id) - printful_ids
       Spree::Product.where(printful_id: deleted_printful_ids).update_all(deleted_at: DateTime.current)
@@ -41,7 +59,7 @@ module Printful::Operation
         price = product.reload.master.cost_price || product.variants&.sample&.cost_price
         product.update(price: price)
       end
+      true
     end
-
   end
 end

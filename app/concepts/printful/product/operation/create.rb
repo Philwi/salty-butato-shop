@@ -1,5 +1,5 @@
-module Printful::Operation
-  class CreateProducts < Trailblazer::Operation
+module Printful::Product::Operation
+  class Create < Trailblazer::Operation
     step :create_new_products, fast_track: true
 
     def create_new_products(ctx, new_products:, **)
@@ -17,12 +17,9 @@ module Printful::Operation
           image = new_product.reload.images.build
           image.attachment.attach(io: URI.open(product['thumbnail_url']), filename: product['thumbnail_url'])
           image.save
-
-          ::Printful::Operation::CreateVariants.(printful_id: new_product.printful_id)
-
-          new_product.update(price: new_product.reload.master.cost_price)
         end
       end
+      true
     end
 
   end

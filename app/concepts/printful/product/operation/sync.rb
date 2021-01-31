@@ -1,9 +1,8 @@
-module Printful::Operation
-  class SyncProducts < Trailblazer::Operation
+module Printful::Product::Operation
+  class Sync < Trailblazer::Operation
     step :sync_products, fast_track: true
 
     def sync_products(ctx, old_products:, old_products_printful_response:, **)
-
       old_products_printful_response.each do |product|
         old_product = old_products.find_by(printful_id: product[:id])
         next if old_product.blank?
@@ -18,10 +17,6 @@ module Printful::Operation
           image.attachment.attach(io: URI.open(product['thumbnail_url']), filename: product['thumbnail_url'])
           image.save
         end
-
-        ::Printful::Operation::SyncVariants.(printful_id: old_product.printful_id)
-
-        old_product.price = old_product.reload.master.cost_price || product['retail_price'] || 100
         old_product.save
       end
     end

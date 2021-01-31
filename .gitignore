@@ -37,3 +37,6 @@ yarn-debug.log*
 
 
 /vendor/cache/*
+/test/vcr_cassettes/*
+tags
+tags.*
