@@ -11,7 +11,7 @@ module Printful::Operation
     private
 
     def get_products(ctx, **)
-      response = ::Printful::Util::Helper.request(url: '/sync/products')
+      response = ::Printful::Util::Helper.request(url: '/sync/products?limit=100')
       return Railway.fail_fast! unless response['code'] == 200
 
       printful_ids = response['result'].pluck('id')
