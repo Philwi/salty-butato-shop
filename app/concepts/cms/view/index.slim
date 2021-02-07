@@ -1,0 +1,15 @@
+#cms-content(data-controller="cms-side-bar")
+  .row
+    - pages.each do |page|
+      .col-sm
+        .card.text-center
+          .card-img-top = image_from_page(page)
+          .card-body
+            .card-tilte
+              strong = page.label
+            .card-text
+              p = page_body_without_images(page)
+              = link_to('Hin da', comfy_cms_render_page_path(page.slug), class: 'btn btn-secondary')
+          .card-footer.text-muted
+            p = I18n.l(page.created_at, format: :short)
+

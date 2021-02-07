@@ -16,9 +16,10 @@
     <div data-hook>
       <main id="content" data-hook>
         <%= flash_messages %>
+        <%= Layout::Cell::CmsHeader.() %>
         <div class='cms-container'>
-          <%= Layout::Cell::CmsNavbar.() %>
-          <div class='cms-body-container'>
+          <%= render html: cell(Layout::Cell::CmsNavbar) %>
+          <div class='cms-body-container', id="cms-body">
             <%= yield %>
           </div>
         </div>

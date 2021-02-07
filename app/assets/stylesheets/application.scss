@@ -17,22 +17,35 @@
 @import './spree/frontend/variables/variables.scss';
 
 .cms-container{
-  display: flex;
-  flex-wrap: wrap;
   .cms-body-container{
-    margin-top: 5vh;
     min-height: 50vh;
     padding: 10px;
-    flex-wrap: inherit;
-    margin: auto
+    margin: 5vh 20vw;
   }
   #cms-side-bar{
     padding: 25px 25px 0px 0px;
-    border-right: 1px solid $global-border-style;
-    flex-wrap: inherit;
-    max-width: 20%;
-    li{
+    border-bottom: 1px solid $global-border-style;
+    text-align: center;
+    background-color: $primary-color;
+    color: $primary-background;
+    font-variant: petite-caps;
+
+    ul > li {
+      display: inline-block;
+      /* You can also add some margins here to make it look prettier */
+      zoom:1;
+      *display:inline;
+    }
+    ul.main-nav{
+      width: 100%;
+    }
+    span {
+      width: calc(50% - 8px);
+    }
+     li.main-nav{
       list-style: none;
+      display: inline-block;
+      width: inherit;
       .sub-nav{
       }
     }
@@ -50,10 +63,22 @@
     }
   }
   img{
-    max-width: 80vw;
+    max-width: 100%;
     height: auto;
     object-fit: contain;
   }
+}
+
+.cms_page_title{
+  strong{
+    font-size: 7vh;
+    line-height: 1em;
+  }
+  p{
+    text-align: right;
+  }
+  border-bottom: 1px dotted $primary-color;
+  margin-bottom: 2rem;
 }
 
 .footer-spree .logo img {
@@ -61,13 +86,73 @@
   width: auto;
 }
 
-@media only screen and (max-width: 800px) {
-  .cms-body-container{
-    margin: 10px 0;
+.cms-header {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+
+  img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    opacity: 0.6;
   }
-  #cms-side-bar{
-    width: 100vh;
-    max-width: 100% !important;
-    border-bottom: 1px solid $global-border-style;
+  .description{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+
+    img{
+      width: 175px;
+      height: 175px;
+      border-radius: 100px;
+      opacity: 1;
+      border: 4px solid $primary-background;
+    }
+
+    strong{
+      background-color: $primary-color;
+      color: $primary-background;
+      font-variant: petite-caps;
+      font-size: 22px;
+      padding: 0 9px 0 9px;
+    }
   }
 }
+
+#cms-content{
+  .row{
+    margin: 0px 20px;
+  }
+  .card{
+    margin: 25px 10px;
+    img{
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+    }
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cms-container {
+    .cms-body-container{
+      margin: 0px;
+      p {
+        text-align: justify;
+      }
+      .cms_page_title{
+        p {
+          text-align: right;
+        }
+      }
+    }
+}}
