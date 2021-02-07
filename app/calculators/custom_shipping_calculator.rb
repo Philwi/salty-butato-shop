@@ -6,7 +6,7 @@ class CustomShippingCalculator < Spree::ShippingCalculator
   def compute_package(package)
     result = ::Printful::ShippingRate::Operation::GetCosts.(order: package.order)
     if costs = result[:costs]
-      costs
+      costs.to_f
     else
       10
     end

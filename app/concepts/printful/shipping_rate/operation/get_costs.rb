@@ -4,7 +4,7 @@ module Printful::ShippingRate::Operation
     step :get_costs_from_printful
 
     def create_message(ctx, order:, **)
-      ship_address = order.ship_address
+      ship_address = order.ship_address || order.user.addresses.first
 
       items =
         order.line_items.map do |item|
@@ -19,7 +19,7 @@ module Printful::ShippingRate::Operation
           {
             recipient: {
               city: ship_address.city,
-              state_code: ship_address.state.abbr,
+              state_code: ship_address.state&.abbr,
               country_code: ship_address.country.iso,
               zip: ship_address.zipcode,
               address1: ship_address.address1
